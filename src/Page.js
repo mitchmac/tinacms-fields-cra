@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useCMS, useLocalForm } from 'tinacms';
+import { ContentBlock } from './Blocks';
 
 export default function Page() {
     useCMS();
@@ -8,6 +9,10 @@ export default function Page() {
     let rawPage = {
         title: 'This is a page title',
         markdownBody: 'This is a page body',
+        blocks: [
+            {content: 'This is block 1!', '_template': 'ContentBlock'},
+            {content: 'This is block 2!', '_template': 'ContentBlock'}
+        ],
         publish: true,
     };
 
@@ -26,6 +31,19 @@ export default function Page() {
                 component: 'text'
             },
             {
+                name: 'markdownBody',
+                label: 'Body',
+                component: 'markdown'
+            },
+            {
+                label: 'Blocks',
+                name: 'blocks',
+                component: 'blocks',
+                templates: {
+                    ContentBlock,
+                },
+            },
+            {
                 name: 'fontcolor',
                 component: 'color',
                 label: 'Font Color',
@@ -33,11 +51,6 @@ export default function Page() {
                 colorFormat: 'hex',
                 colors: ['#EC4815', '#241748', '#B4F4E0', '#E6FAF8'],
                 widget: 'sketch',
-            },
-            {
-                name: 'markdownBody',
-                label: 'Body',
-                component: 'markdown'
             },
             {
                 name: 'publish',
@@ -56,6 +69,18 @@ export default function Page() {
             <div style={{color: post.fontcolor}}>
                 <h2>{post.title}</h2>
                 <ReactMarkdown source={post.markdownBody}/>
+                <h3>Blocks</h3>
+
+                {post.blocks &&
+                post.blocks.map(({ _template, ...data }, i) => {
+                    switch (_template) {
+                        case 'ContentBlock':
+                            return ( <div>{data.content}</div> );
+                            break;
+                        default:
+                            return true
+                    }
+                })}
             </div>
 
             <div style={{fontSize: 16, marginTop: 60, borderTop: '1px dashed'}}>
