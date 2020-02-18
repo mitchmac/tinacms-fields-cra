@@ -10,18 +10,18 @@ export default function Page() {
         title: 'This is a page title',
         markdownBody: 'This is a page body',
         blocks: [
-            {content: 'This is block 1!', '_template': 'ContentBlock'},
-            {content: 'This is block 2!', '_template': 'ContentBlock'}
+            {content: 'This is block 1!', subtext: 'Subtext 1', '_template': 'ContentBlock'},
+            {content: 'This is block 2!', subtext: 'Subtext 2', '_template': 'ContentBlock'}
         ],
         publish: true,
     };
 
-    const [post, form] = useLocalForm({
+    let [page, form] = useLocalForm({
         id: 'foo',
         label: 'Edit Page',
 
-        initialValues: {
-            ...rawPage
+        loadInitialValues() {
+            return getContent()
         },
 
         fields: [
@@ -64,15 +64,27 @@ export default function Page() {
         }
     });
 
+    async function getContent() {
+        let response = await fetch('datafile.json');
+        //@TODO: actual logic.
+        if (response) {
+            return await response.json();
+        }
+        else {
+            return rawPage;
+        }
+
+    }
+
     return (
         <>
-            <div style={{color: post.fontcolor}}>
-                <h2>{post.title}</h2>
-                <ReactMarkdown source={post.markdownBody}/>
+            <div style={{color: page.fontcolor}}>
+                <h2>{page.title}</h2>
+                <ReactMarkdown source={page.markdownBody}/>
                 <h3>Blocks</h3>
 
-                {post.blocks &&
-                post.blocks.map(({ _template, ...data }, i) => {
+                {page.blocks &&
+                page.blocks.map(({ _template, ...data }, i) => {
                     switch (_template) {
                         case 'ContentBlock':
                             return ( <div>{data.content}</div> );
