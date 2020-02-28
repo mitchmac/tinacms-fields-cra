@@ -11,7 +11,7 @@ export default function AddingTina() {
             <p>Tina is an open-source toolkit for React based websites.</p>
             <p>We've added it to this page.</p>
             <p>See the icon on the left?</p>
-            <Link to="/forms">Cool, let's add a form</Link>
+            <Link to="/forms" style={{display: 'block', marginTop: 60}}>Cool, let's add a form</Link>
         </>
     );
 }

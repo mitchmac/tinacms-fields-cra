@@ -27,7 +27,7 @@ export default function Blocks() {
 
         fields: [
             {
-                label: 'Locations',
+                label: 'Location Landing Page',
                 name: 'blocks',
                 component: 'blocks',
                 templates: {
@@ -46,7 +46,7 @@ export default function Blocks() {
 
     return (
         <>
-            <p>Blocks can be used edit structured content of mixed types.</p>
+            <p>Blocks can be used edit structured content of mixed types. Each can be edited, reordered, or deleted.</p>
             {page.blocks &&
             page.blocks.map(({ _template, ...data }, i) => {
                 switch (_template) {

@@ -57,7 +57,7 @@ export default function FormFields() {
                 <div><ReactMarkdown source={page.text}/></div>
             </div>
             <div>
-                <Link to="/blocks">What about structured content?</Link>
+                <Link to="/blocks" style={{display: 'block', marginTop: 60}}>What about structured content?</Link>
             </div>
         </>
     );

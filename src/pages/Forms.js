@@ -36,7 +36,7 @@ export default function Forms() {
     return (
         <>
             <p>{page.text}</p>
-            <Link to="/form-fields">Boring! Let's make that form better</Link>
+            <Link to="/form-fields" style={{display: 'block', marginTop: 60}}>Boring! Let's make the form better</Link>
         </>
     );
 }

@@ -40,7 +40,7 @@ function App() {
                   <Route path="/blocks">
                       <Blocks />
                   </Route>
-                  <Route path="/">
+                  <Route exact path="/">
                       <Home />
                   </Route>
               </Switch>
