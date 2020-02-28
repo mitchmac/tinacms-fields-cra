@@ -1,21 +1,53 @@
 import React from 'react';
 import './App.css';
-import { TinaCMS, Tina  } from 'tinacms';
-import Page from './Page.js';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+} from "react-router-dom";
+
+import { Tina, TinaCMS } from 'tinacms';
+
+import Home from './pages/Home.js';
+import AddingTina from './pages/AddingTina.js';
+import Forms from './pages/Forms.js';
+import FormFields from './pages/FormFields.js';
+import Blocks from './pages/Blocks.js';
 
 function App() {
-    let cms = new TinaCMS({
+    const cms = new TinaCMS({
         sidebar: {
-            position: "displace"
+            position: "displace",
+            hidden: true
         }
     });
 
   return (
-      <Tina cms={cms} >
-      <div className="App">
-        <Page />
-      </div>
-      </Tina>
+
+      <Router>
+          <Tina cms={cms}>
+          <div className="App">
+              <Switch>
+                  <Route path="/adding-tina">
+                      <AddingTina />
+                  </Route>
+                  <Route path="/forms">
+                      <Forms />
+                  </Route>
+                  <Route path="/form-fields">
+                      <FormFields />
+                  </Route>
+                  <Route path="/blocks">
+                      <Blocks />
+                  </Route>
+                  <Route path="/">
+                      <Home />
+                  </Route>
+              </Switch>
+          </div>
+          </Tina>
+      </Router>
+
   );
 }
 
