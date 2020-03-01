@@ -10,6 +10,7 @@ export default function InlineToggle() {
             onClick={() => {
                 status === 'active' ? deactivate() : activate()
             }}
+            isColor="primary"
         >
             {status === 'active' ? 'Preview' : 'Edit This Page'}
         </Button>

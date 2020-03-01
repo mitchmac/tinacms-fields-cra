@@ -8,7 +8,7 @@ export default function NavItem(props) {
                 to={props.to}
                 activeStyle={{
                     fontWeight: "bold",
-                    color: "red"
+                    color: 'hsl(0, 0%, 21%)'
                 }}
             >
                 {props.children}

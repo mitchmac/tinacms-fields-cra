@@ -3,7 +3,8 @@ import ReactMarkdown from 'react-markdown'
 import {useLocalForm, Wysiwyg} from 'tinacms'
 import { InlineForm, InlineField } from 'react-tinacms-inline'
 import InlineToggle from "../fields/InlineToggle.js";
-
+import { Field, Label, Control, Input } from 'bloomer';
+import NextLink from "../components/NextLink";
 
 export default function Inline() {
     const [, form] = useLocalForm({
@@ -42,7 +43,14 @@ export default function Inline() {
                         {
                             ({input, status}) => {
                                 if (status === 'active') {
-                                    return <div style={{marginBottom: 20}}><label style={{marginRight: 20}}>Title:</label><input type='text' {...input}/></div>
+                                    return (
+                                        <Field>
+                                            <Label>Name</Label>
+                                            <Control>
+                                                <Input type="text" {...input} />
+                                            </Control>
+                                        </Field>
+                                    )
                                 }
                                 return <h2 className="title is-2">{input.value}</h2>
                             }
@@ -63,6 +71,8 @@ export default function Inline() {
                     <InlineToggle/>
                 </div>
             </InlineForm>
+
+            <NextLink to="/global-forms">Are we stuck with single page forms?</NextLink>
         </>
     );
 }

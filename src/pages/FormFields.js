@@ -9,7 +9,7 @@ export default function FormFields() {
     cms.sidebar.hidden = false;
 
     let content = {
-        title: 'We added a title!',
+        title: 'We added a page title',
         text: "And turned this into *rich text*. There's even a field for colors!",
         fontcolor: '#0069B6'
     };
@@ -54,7 +54,7 @@ export default function FormFields() {
     return (
         <>
             <div style={{color: page.fontcolor}}>
-                <h2>{page.title}</h2>
+                <h2 className="title is-3">{page.title}</h2>
                 <div><ReactMarkdown source={page.text}/></div>
             </div>
             <NextLink to="/blocks">What about structured content?</NextLink>

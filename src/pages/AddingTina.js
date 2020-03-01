@@ -9,7 +9,7 @@ export default function AddingTina() {
     return (
         <>
             <p>See the icon on the left?</p>
-            <p>Tina is an open-source editing toolkit for React based websites.</p>
+            <p>Tina is an open-source content editing toolkit. And we've added it to this page.</p>
             <NextLink to="/forms">Cool, let's add a form!</NextLink>
         </>
     );

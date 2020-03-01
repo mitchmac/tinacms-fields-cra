@@ -1,6 +1,5 @@
 import React from "react";
 import {useCMS, useLocalForm, useGlobalForm } from 'tinacms'
-import { Link } from "react-router-dom";
 
 export default function GlobalForms() {
     const cms = useCMS();
@@ -17,7 +16,7 @@ export default function GlobalForms() {
         fields: [
             {
                 name: 'text',
-                label: 'Text',
+                label: 'Site Title',
                 component: 'text'
             }
         ],
@@ -30,7 +29,7 @@ export default function GlobalForms() {
     });
 
     let content = {
-        text: 'We can edit this text in the sidebar!'
+        text: "There's a menu in the sidebar now, we can access global forms there."
     };
 
     const [page, form] = useLocalForm({
@@ -59,7 +58,6 @@ export default function GlobalForms() {
     return (
         <>
             <p>{page.text}</p>
-            <Link to="/form-fields" style={{display: 'block', marginTop: 60}}>Boring! Let's make the form better</Link>
         </>
     );
 }

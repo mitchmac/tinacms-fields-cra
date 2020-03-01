@@ -33,7 +33,8 @@ export default function Blocks() {
                     LocationFormBlock,
                     CTAFormBlock
                 },
-            },
+                description: 'Blocks can be used edit structured content of mixed types. Each can be edited, reordered, or deleted.'
+            }
         ],
 
         onSubmit(data, form) {
@@ -45,7 +46,6 @@ export default function Blocks() {
 
     return (
         <>
-            <p>Blocks can be used edit structured content of mixed types. Each can be edited, reordered, or deleted.</p>
             {page.blocks &&
             page.blocks.map(({ _template, ...data }, i) => {
                 switch (_template) {
