@@ -4,7 +4,7 @@ export default function Cta(props) {
 
     return (
         <div style={{
-            backgroundColor: '#fc5b5b',
+            backgroundColor: '#FFB7B7',
             marginTop: 20,
             marginBottom: 20,
             padding: 20,

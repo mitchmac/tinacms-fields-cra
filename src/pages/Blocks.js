@@ -1,9 +1,9 @@
 import React from "react";
 import {useCMS, useLocalForm} from 'tinacms'
-import { Link } from "react-router-dom";
 import { LocationFormBlock, CTAFormBlock } from '../fields/Blocks.js';
 import Location from '../components/Location.js';
 import Cta from '../components/Cta.js';
+import NextLink from "../components/NextLink";
 
 export default function Blocks() {
     const cms = useCMS();
@@ -11,7 +11,6 @@ export default function Blocks() {
 
     let content = {
         blocks: [
-            {city: 'San Francisco', lat: 37.77493, lon:-122.41942, zoom: 12, '_template': 'LocationFormBlock'},
             {headline: 'New Product Launch', buttonText: 'Subscribe now', '_template': 'CTAFormBlock' },
             {city: 'Toronto', lat: 43.70011, lon: -79.4163, zoom: 12,  '_template': 'LocationFormBlock'}
         ],
@@ -58,6 +57,8 @@ export default function Blocks() {
                         return true
                 }
             })}
+
+            <NextLink to="/inline">Can we edit inline?</NextLink>
         </>
     );
 }

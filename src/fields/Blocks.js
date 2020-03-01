@@ -23,7 +23,7 @@ export const CTAFormBlock = {
     },
     fields: [
         { name: 'headline', label: 'Headline', component: 'text' },
-        { name: 'buttonText', label: 'Button Tex', component: 'text' }
+        { name: 'buttonText', label: 'Button Text', component: 'text' }
     ],
     itemProps: item => ({
         label: item.headline,

@@ -1,13 +1,13 @@
 import React from "react";
 import {useCMS, useLocalForm} from 'tinacms'
-import { Link } from "react-router-dom";
+import NextLink from "../components/NextLink";
 
 export default function Forms() {
     const cms = useCMS();
     cms.sidebar.hidden = false;
 
     let content = {
-        text: 'We can edit this text in the sidebar!'
+        text: 'Now that we have a form, we can edit this text in the sidebar!'
     };
 
     const [page, form] = useLocalForm({
@@ -36,7 +36,7 @@ export default function Forms() {
     return (
         <>
             <p>{page.text}</p>
-            <Link to="/form-fields" style={{display: 'block', marginTop: 60}}>Boring! Let's make the form better</Link>
+            <NextLink to="/form-fields">Boring! Let's make the form better</NextLink>
         </>
     );
 }

@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Link } from "react-router-dom";
-import { useCMS } from 'tinacms';
+import {useCMS} from "tinacms";
+
 
 export default function Home() {
     const cms = useCMS();

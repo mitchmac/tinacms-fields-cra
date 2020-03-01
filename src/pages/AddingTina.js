@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useCMS } from "tinacms";
+import NextLink from "../components/NextLink.js";
 
 export default function AddingTina() {
     const cms = useCMS();
@@ -8,10 +8,9 @@ export default function AddingTina() {
 
     return (
         <>
-            <p>Tina is an open-source toolkit for React based websites.</p>
-            <p>We've added it to this page.</p>
             <p>See the icon on the left?</p>
-            <Link to="/forms" style={{display: 'block', marginTop: 60}}>Cool, let's add a form</Link>
+            <p>Tina is an open-source editing toolkit for React based websites.</p>
+            <NextLink to="/forms">Cool, let's add a form!</NextLink>
         </>
     );
 }
